@@ -1,0 +1,388 @@
+{
+  "metadata": {
+    "source": "CDC, NIMH, SAMHSA, American Psychological Association",
+    "description": "Risk factors and causes of mental health conditions in adults",
+    "note": "Based on peer-reviewed research and epidemiological studies"
+  },
+  "risk_factors": [
+    {
+      "id": 1,
+      "name": "Work-Related Stress",
+      "category": "Occupational",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Chronic stress from demanding work environment, job insecurity, workplace conflicts, or overwork. One of the most common mental health stressors for working adults.",
+      "prevalence": "34% of adults report high work stress",
+      "risk_level": "high",
+      "warning_signs": [
+        "Increased irritability or mood swings",
+        "Difficulty concentrating at work",
+        "Physical tension or headaches",
+        "Social withdrawal from colleagues"
+      ],
+      "prevention_tips": [
+        "Set healthy work-life boundaries",
+        "Practice stress management techniques",
+        "Seek support from supervisors or HR",
+        "Consider job changes if necessary"
+      ],
+      "resources": [
+        "https://www.cdc.gov/niosh/",
+        "https://www.apa.org/work/"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Financial Insecurity",
+      "category": "Systemic",
+      "conditions": ["depression", "anxiety"],
+      "description": "Inadequate income, debt, job loss, or inability to meet basic needs. Financial stress is strongly linked to depression and anxiety across all age groups.",
+      "prevalence": "42% of adults report financial stress",
+      "risk_level": "high",
+      "warning_signs": [
+        "Sleep problems due to worry",
+        "Constant thinking about money",
+        "Avoidance of bills or financial statements",
+        "Relationship conflicts about money"
+      ],
+      "prevention_tips": [
+        "Create a realistic budget",
+        "Seek financial counseling",
+        "Build emergency savings gradually",
+        "Explore government assistance programs"
+      ],
+      "resources": [
+        "https://www.consumerfinance.gov/",
+        "https://www.nfcc.org/"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Relationship Problems",
+      "category": "Relational",
+      "conditions": ["depression", "anxiety"],
+      "description": "Conflict in romantic relationships, marriages, or significant relationships. Relationship quality significantly affects mental health outcomes in adults.",
+      "prevalence": "38% of adults report relationship stress",
+      "risk_level": "high",
+      "warning_signs": [
+        "Frequent arguments or communication breakdown",
+        "Emotional or physical distance from partner",
+        "Isolation from social support",
+        "Low self-esteem or self-blame"
+      ],
+      "prevention_tips": [
+        "Seek couples counseling early",
+        "Practice active listening",
+        "Maintain individual identity and friendships",
+        "Address conflicts promptly"
+      ],
+      "resources": [
+        "https://www.aamft.org/",
+        "https://www.apa.org/ptsd-guideline/"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Trauma and PTSD",
+      "category": "Biological",
+      "conditions": ["ptsd", "depression", "anxiety"],
+      "description": "Exposure to traumatic events (combat, assault, accidents, abuse). Can result in PTSD with significant impact on daily functioning and relationships.",
+      "prevalence": "8% of adults have PTSD",
+      "risk_level": "high",
+      "warning_signs": [
+        "Intrusive memories or flashbacks",
+        "Nightmares or sleep disturbances",
+        "Hypervigilance or exaggerated startle response",
+        "Emotional numbness or avoidance"
+      ],
+      "prevention_tips": [
+        "Seek trauma-informed therapy immediately",
+        "Establish safety and routine",
+        "Build strong support network",
+        "Avoid isolation and self-medication"
+      ],
+      "resources": [
+        "https://www.va.gov/health/",
+        "https://www.apa.org/ptsd-guideline/",
+        "Crisis Text Line: Text HOME to 741741"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Social Isolation",
+      "category": "Social",
+      "conditions": ["depression", "anxiety"],
+      "description": "Lack of meaningful social connections or social support. Loneliness and isolation are increasingly common and strongly linked to depression in adults.",
+      "prevalence": "26% of adults report feeling lonely",
+      "risk_level": "medium",
+      "warning_signs": [
+        "Feeling disconnected from others",
+        "Limited social interactions",
+        "Lack of close relationships",
+        "Withdrawal from community activities"
+      ],
+      "prevention_tips": [
+        "Actively maintain relationships",
+        "Join community groups or organizations",
+        "Volunteer in your community",
+        "Use technology to stay connected meaningfully"
+      ],
+      "resources": [
+        "https://www.nimh.nih.gov/",
+        "https://www.aarp.org/social-connection/"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Unemployment or Job Loss",
+      "category": "Occupational",
+      "conditions": ["depression", "anxiety"],
+      "description": "Loss of employment or inability to find work. Job loss triggers both financial stress and identity loss, major depression risk factors.",
+      "prevalence": "5-8% unemployment rate, higher depression rates",
+      "risk_level": "high",
+      "warning_signs": [
+        "Loss of purpose and identity",
+        "Hopelessness about future",
+        "Sleep and appetite changes",
+        "Withdrawal and isolation"
+      ],
+      "prevention_tips": [
+        "Access unemployment benefits and career services",
+        "Network and seek employment support",
+        "Volunteer to maintain sense of purpose",
+        "Consider retraining or career change programs"
+      ],
+      "resources": [
+        "https://www.dol.gov/",
+        "https://www.careeronetop.org/"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Chronic Medical Illness",
+      "category": "Biological",
+      "conditions": ["depression", "anxiety"],
+      "description": "Ongoing health conditions (diabetes, heart disease, cancer, etc.). Chronic illness significantly increases risk of depression and anxiety.",
+      "prevalence": "30% of chronic illness patients have depression",
+      "risk_level": "high",
+      "warning_signs": [
+        "Loss of independence and autonomy",
+        "Chronic pain affecting mood",
+        "Treatment burden and medication side effects",
+        "Social limitations due to illness"
+      ],
+      "prevention_tips": [
+        "Integrate mental health with medical care",
+        "Maintain physical activity as tolerated",
+        "Join disease-specific support groups",
+        "Address medication side effects with doctor"
+      ],
+      "resources": [
+        "https://www.cdc.gov/chronic-disease/",
+        "https://www.nih.gov/"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Family History of Mental Illness",
+      "category": "Biological",
+      "conditions": ["depression", "anxiety", "substance_use_disorder"],
+      "description": "Genetic predisposition to mental health conditions. Having family members with depression, anxiety, or addiction increases personal risk.",
+      "prevalence": "30% higher risk with family history",
+      "risk_level": "medium",
+      "warning_signs": [
+        "Early onset of symptoms",
+        "More severe presentation",
+        "Treatment-resistant conditions",
+        "Multiple family members affected"
+      ],
+      "prevention_tips": [
+        "Monitor for early warning signs",
+        "Seek early intervention if symptoms appear",
+        "Maintain healthy lifestyle",
+        "Regular mental health check-ups"
+      ],
+      "resources": [
+        "https://www.nimh.nih.gov/",
+        "https://www.nami.org/"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Substance Abuse or Dependence",
+      "category": "Biological",
+      "conditions": ["depression", "anxiety", "substance_use_disorder"],
+      "description": "Alcohol, drug, or medication misuse. Substance use often co-occurs with or masks mental health conditions.",
+      "prevalence": "10.1% of US adults have substance use disorder",
+      "risk_level": "high",
+      "warning_signs": [
+        "Increased substance use to cope",
+        "Tolerance and withdrawal symptoms",
+        "Impact on work, relationships, health",
+        "Failed attempts to cut down"
+      ],
+      "prevention_tips": [
+        "Seek dual diagnosis treatment programs",
+        "Join 12-step or SMART Recovery groups",
+        "Build recovery support network",
+        "Address underlying mental health issues"
+      ],
+      "resources": [
+        "https://www.samhsa.gov/",
+        "https://www.aa.org/",
+        "SAMHSA National Helpline: 1-800-662-4357"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Childhood Trauma or Abuse",
+      "category": "Biological",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "History of childhood abuse, neglect, or trauma. Adverse childhood experiences significantly increase adult mental health risks.",
+      "prevalence": "61% of adults experienced ACE",
+      "risk_level": "high",
+      "warning_signs": [
+        "Complex PTSD symptoms",
+        "Difficulty with relationships",
+        "Low self-esteem",
+        "Hypervigilance or trust issues"
+      ],
+      "prevention_tips": [
+        "Seek trauma-informed therapy",
+        "Process past experiences in safe environment",
+        "Build healthy relationships",
+        "Develop grounding and coping skills"
+      ],
+      "resources": [
+        "https://www.samhsa.gov/",
+        "https://childhelp.org/",
+        "Childhelp National Hotline: 1-800-422-4453"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Caregiving Responsibilities",
+      "category": "Relational",
+      "conditions": ["depression", "anxiety"],
+      "description": "Stress from caring for aging parents, children, or disabled family members. Caregiver burden significantly increases mental health risks.",
+      "prevalence": "42 million caregivers in US, high burnout rates",
+      "risk_level": "medium",
+      "warning_signs": [
+        "Exhaustion and burnout",
+        "Guilt about self-care needs",
+        "Resentment or anger",
+        "Neglect of own health"
+      ],
+      "prevention_tips": [
+        "Join caregiver support groups",
+        "Set boundaries and delegate",
+        "Take regular breaks and respite care",
+        "Prioritize self-care and mental health"
+      ],
+      "resources": [
+        "https://www.caregiver.org/",
+        "https://www.aarp.org/caregiving/"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Life Transitions",
+      "category": "Relational",
+      "conditions": ["depression", "anxiety"],
+      "description": "Major life changes like retirement, empty nest, divorce, or relocation. Transitions challenge identity and stability.",
+      "prevalence": "Most adults experience major transitions",
+      "risk_level": "medium",
+      "warning_signs": [
+        "Loss of identity and purpose",
+        "Difficulty adapting to new circumstances",
+        "Uncertainty about future",
+        "Grief and mourning"
+      ],
+      "prevention_tips": [
+        "Plan for major transitions proactively",
+        "Maintain social connections during change",
+        "Seek counseling for difficult transitions",
+        "Develop new routines and purpose"
+      ],
+      "resources": [
+        "https://www.apa.org/",
+        "https://www.therapyden.com/"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Health Behavior Deficits",
+      "category": "Lifestyle",
+      "conditions": ["depression", "anxiety"],
+      "description": "Poor sleep, sedentary lifestyle, poor nutrition, lack of exercise. These factors both contribute to and result from mental health problems.",
+      "prevalence": "35% sleep deprived, 25% sedentary",
+      "risk_level": "medium",
+      "warning_signs": [
+        "Chronic sleep problems",
+        "Low energy and motivation",
+        "Poor physical health",
+        "Weight changes"
+      ],
+      "prevention_tips": [
+        "Establish regular sleep schedule",
+        "Start small exercise routine",
+        "Improve nutrition gradually",
+        "Reduce caffeine and alcohol"
+      ],
+      "resources": [
+        "https://www.cdc.gov/mentalhealth/",
+        "https://www.sleepfoundation.org/"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Life Stressors and Major Events",
+      "category": "Systemic",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Accumulation of life stressors or major life events. Multiple stressors together significantly increase mental health risks.",
+      "prevalence": "Highly variable with individual circumstances",
+      "risk_level": "high",
+      "warning_signs": [
+        "Feeling overwhelmed",
+        "Inability to cope with normal tasks",
+        "Physical stress symptoms",
+        "Thoughts of hopelessness"
+      ],
+      "prevention_tips": [
+        "Develop stress management skills",
+        "Break problems into manageable pieces",
+        "Maintain physical health",
+        "Seek social support and professional help"
+      ],
+      "resources": [
+        "https://www.nimh.nih.gov/",
+        "Crisis Text Line: Text HOME to 741741"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Discrimination and Stigma",
+      "category": "Social",
+      "conditions": ["depression", "anxiety"],
+      "description": "Experience of discrimination based on race, gender, sexuality, or mental illness status. Increases stress and barriers to care.",
+      "prevalence": "Varies by demographic group",
+      "risk_level": "medium",
+      "warning_signs": [
+        "Internalized stigma and shame",
+        "Avoidance of mental health care",
+        "Hypervigilance in social situations",
+        "Anger and distrust"
+      ],
+      "prevention_tips": [
+        "Build community with others with shared experiences",
+        "Educate about mental health",
+        "Challenge negative self-beliefs",
+        "Advocate for mental health rights"
+      ],
+      "resources": [
+        "https://www.nami.org/",
+        "https://www.samhsa.gov/",
+        "https://www.apa.org/"
+      ]
+    }
+  ]
+}

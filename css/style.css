@@ -1,0 +1,318 @@
+:root {
+    --primary-color: #2c3e50;
+    --success-color: #27ae60;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    --info-color: #3498db;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+.form-select, .form-control {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.2s ease;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--info-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+table {
+    font-size: 0.875rem;
+}
+
+table thead th {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+table tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+canvas {
+    max-height: 300px;
+}
+
+footer {
+    margin-top: auto;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .row {
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+    }
+
+    .col-md-6, .col-lg-3, .col-lg-6 {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+
+    .card {
+        margin-bottom: 0.5rem;
+    }
+
+    canvas {
+        max-height: 250px;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .form-label {
+        font-size: 0.875rem;
+    }
+}
+
+/* Chart.js custom colors */
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+/* Tab Navigation */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.nav-tabs .nav-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--info-color);
+    border-bottom-color: var(--info-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--info-color);
+    border-bottom-color: var(--info-color);
+    background-color: transparent;
+}
+
+/* Treatment Grid */
+#treatmentsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+}
+
+/* Treatment Card Styles */
+.treatment-card {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.treatment-card:hover {
+    border-color: var(--info-color);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(52, 152, 219, 0.15) !important;
+}
+
+.treatment-card .card-footer {
+    background-color: #fafafa;
+}
+
+.treatment-card:hover .card-footer {
+    background-color: #f0f7ff;
+}
+
+/* Risk Factors Grid */
+#riskFactorsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+}
+
+/* Risk Factor Card Styles */
+.risk-factor-card {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.risk-factor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+.risk-factor-card .card-footer {
+    background-color: #fafafa;
+}
+
+.risk-factor-card:hover .card-footer {
+    background-color: #f0f7ff;
+}
+
+.alert-sm {
+    border-radius: 4px;
+    border: 1px solid #cfe9f3;
+    background-color: #ecf5fb;
+    color: #0c5a85;
+}
+
+/* Progress bar colors */
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Treatment details modal */
+.treatment-details h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+.treatment-details .badge {
+    font-size: 0.85rem;
+}
+
+.treatment-details ul li {
+    color: #555;
+}
+
+.treatment-details .alert {
+    border-radius: 6px;
+    border-left: 4px solid #f39c12;
+}
+
+.treatment-details a {
+    color: var(--info-color);
+    font-weight: 500;
+}
+
+.treatment-details a:hover {
+    color: var(--primary-color);
+}
+
+/* Learning Content Styles */
+.learning-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+.learning-content h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-left: 4px solid var(--info-color);
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+
+.learning-content h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.learning-content pre {
+    border-left: 4px solid var(--info-color);
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+.learning-content ol, .learning-content ul {
+    margin-left: 1.5rem;
+}
+
+.learning-content li {
+    margin-bottom: 0.5rem;
+}
+
+.learning-content strong {
+    color: var(--primary-color);
+}
+
+.learning-content .alert {
+    border-left-width: 4px;
+    border-left-style: solid;
+}
+
+.learning-content .alert-info {
+    border-left-color: var(--info-color);
+}
+
+.learning-content .alert-warning {
+    border-left-color: var(--warning-color);
+}
+
+.learning-content .alert-success {
+    border-left-color: var(--success-color);
+}
+
+.learning-content .alert-primary {
+    border-left-color: var(--primary-color);
+}
+
+.learning-content code {
+    background-color: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #c7254e;
+    font-size: 0.9rem;
+}

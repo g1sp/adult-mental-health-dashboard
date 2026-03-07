@@ -1,0 +1,343 @@
+{
+  "metadata": {
+    "source": "SAMHSA, NIMH, American Psychiatric Association, CDC",
+    "description": "Evidence-based mental health treatments for adults",
+    "note": "Effectiveness percentages based on clinical trials and meta-analyses"
+  },
+  "treatments": [
+    {
+      "id": 1,
+      "name": "Cognitive Behavioral Therapy (CBT)",
+      "category": "Psychotherapy",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Structured talk therapy focusing on changing negative thought patterns and maladaptive behaviors. Highly effective for adults across multiple conditions.",
+      "effectiveness": 80,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "12-20 sessions",
+      "modality": "Individual",
+      "resources": [
+        "https://www.apa.org/ptsd-guideline/",
+        "https://www.samhsa.gov/"
+      ],
+      "key_benefits": [
+        "Teaches practical coping skills",
+        "Addresses root causes of symptoms",
+        "Long-lasting results",
+        "Applicable to multiple conditions"
+      ],
+      "considerations": "Requires motivated participant; benefits may take 8-12 weeks to become apparent"
+    },
+    {
+      "id": 2,
+      "name": "Dialectical Behavior Therapy (DBT)",
+      "category": "Psychotherapy",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Intensive therapy combining CBT principles with mindfulness and acceptance-based strategies. Excellent for emotional regulation and crisis management in adults.",
+      "effectiveness": 85,
+      "age_groups": ["18-25", "26-40", "41-65"],
+      "duration": "12-24 months",
+      "modality": "Individual + Group",
+      "resources": [
+        "https://www.samhsa.gov/dbt",
+        "https://www.nimh.nih.gov/"
+      ],
+      "key_benefits": [
+        "Highly effective for emotional dysregulation",
+        "Teaches crisis survival skills",
+        "Community support component",
+        "Combines individual therapy with skills training"
+      ],
+      "considerations": "More intensive commitment required; typically 1-2 years; best for moderate-to-severe cases"
+    },
+    {
+      "id": 3,
+      "name": "Interpersonal Therapy (IPT)",
+      "category": "Psychotherapy",
+      "conditions": ["depression", "anxiety"],
+      "description": "Focuses on improving interpersonal relationships and life circumstances. Particularly effective for depression related to life changes and relationship conflicts.",
+      "effectiveness": 75,
+      "age_groups": ["26-40", "41-65", "65+"],
+      "duration": "12-16 sessions",
+      "modality": "Individual",
+      "resources": [
+        "https://www.ncbi.nlm.nih.gov/",
+        "https://www.apa.org/"
+      ],
+      "key_benefits": [
+        "Targets relationship issues directly",
+        "Helps with life transitions",
+        "Relatively short-term commitment",
+        "Evidence-based for depression"
+      ],
+      "considerations": "Works best when interpersonal issues are primary cause; may be less effective for other causes"
+    },
+    {
+      "id": 4,
+      "name": "Selective Serotonin Reuptake Inhibitors (SSRIs)",
+      "category": "Medication",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "First-line antidepressant medications that increase serotonin levels. Safe, well-tolerated, and effective for most adults with depression and anxiety.",
+      "effectiveness": 70,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "Ongoing, minimum 6-12 months",
+      "modality": "Medication",
+      "resources": [
+        "https://www.fda.gov/",
+        "https://www.samhsa.gov/",
+        "https://www.nimh.nih.gov/"
+      ],
+      "key_benefits": [
+        "Well-tolerated with fewer side effects than older medications",
+        "Multiple options available",
+        "Can be combined with therapy",
+        "FDA-approved for multiple conditions"
+      ],
+      "considerations": "Takes 4-6 weeks to show full effects; may require dose adjustment; sexual side effects possible"
+    },
+    {
+      "id": 5,
+      "name": "Serotonin-Norepinephrine Reuptake Inhibitors (SNRIs)",
+      "category": "Medication",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Antidepressants that affect both serotonin and norepinephrine. Effective alternative when SSRIs are insufficient or for anxiety disorders.",
+      "effectiveness": 72,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "Ongoing, minimum 6-12 months",
+      "modality": "Medication",
+      "resources": [
+        "https://www.fda.gov/",
+        "https://www.nimh.nih.gov/"
+      ],
+      "key_benefits": [
+        "Effective for both depression and anxiety",
+        "May help with pain-related symptoms",
+        "Good for patients who don't respond to SSRIs",
+        "Can improve energy and motivation"
+      ],
+      "considerations": "Similar timeline to SSRIs; may cause withdrawal if stopped abruptly; requires monitoring"
+    },
+    {
+      "id": 6,
+      "name": "Teletherapy (Video/Phone Counseling)",
+      "category": "Integrated Treatment",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Remote therapy sessions via video or phone. Increases access to mental health care, particularly for those with mobility or geographic limitations.",
+      "effectiveness": 76,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "Varies based on treatment type",
+      "modality": "Remote",
+      "resources": [
+        "https://www.samhsa.gov/",
+        "https://www.apa.org/practice/guidelines/telepsychology"
+      ],
+      "key_benefits": [
+        "Convenient and accessible from home",
+        "No travel time required",
+        "Can be more affordable than in-person",
+        "Effective research support for many conditions"
+      ],
+      "considerations": "Requires reliable internet; privacy concerns at home; not suitable for severe crises"
+    },
+    {
+      "id": 7,
+      "name": "Group Therapy / Support Groups",
+      "category": "Support",
+      "conditions": ["depression", "anxiety", "substance_use_disorder"],
+      "description": "Peer-led or therapist-led group settings where adults share experiences and support each other. Highly effective for substance use, depression, and anxiety.",
+      "effectiveness": 78,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "Ongoing, typically weekly sessions",
+      "modality": "Group",
+      "resources": [
+        "https://www.aa.org/",
+        "https://www.na.org/",
+        "https://www.samhsa.gov/"
+      ],
+      "key_benefits": [
+        "Reduces isolation and stigma",
+        "Cost-effective treatment option",
+        "Peer support and shared experiences",
+        "Many groups are free or low-cost"
+      ],
+      "considerations": "Requires openness to group participation; schedule may not be flexible; privacy concerns"
+    },
+    {
+      "id": 8,
+      "name": "Mindfulness-Based Cognitive Therapy (MBCT)",
+      "category": "Psychotherapy",
+      "conditions": ["depression", "anxiety", "ptsd"],
+      "description": "Combines mindfulness meditation with cognitive therapy. Particularly effective for preventing relapse and managing chronic conditions in adults.",
+      "effectiveness": 72,
+      "age_groups": ["26-40", "41-65", "65+"],
+      "duration": "8-week program, typically 2.5 hours weekly",
+      "modality": "Individual and Group",
+      "resources": [
+        "https://www.umassmed.edu/cfm/",
+        "https://www.apa.org/"
+      ],
+      "key_benefits": [
+        "Teaches awareness of thoughts without judgment",
+        "Reduces rumination and worry",
+        "Improves emotional regulation",
+        "Backed by extensive research"
+      ],
+      "considerations": "Requires commitment to practice; works best with previous therapy experience"
+    },
+    {
+      "id": 9,
+      "name": "Couples/Relationship Therapy",
+      "category": "Integrated Treatment",
+      "conditions": ["depression", "anxiety"],
+      "description": "Therapy involving both partners to address relationship issues affecting mental health. Highly effective when relationship problems are contributing to depression or anxiety.",
+      "effectiveness": 73,
+      "age_groups": ["26-40", "41-65"],
+      "duration": "15-30 sessions",
+      "modality": "Couples",
+      "resources": [
+        "https://www.aamft.org/",
+        "https://www.apa.org/"
+      ],
+      "key_benefits": [
+        "Improves communication patterns",
+        "Strengthens relationship",
+        "Addresses relationship-related depression",
+        "Prevents individual problems from becoming worse"
+      ],
+      "considerations": "Both partners must be willing; requires honesty and openness"
+    },
+    {
+      "id": 10,
+      "name": "Ketamine-Assisted Therapy",
+      "category": "Medication",
+      "conditions": ["depression", "ptsd"],
+      "description": "Low-dose ketamine administered in clinical setting combined with therapy. Emerging treatment for treatment-resistant depression with rapid-acting effects.",
+      "effectiveness": 68,
+      "age_groups": ["26-40", "41-65"],
+      "duration": "6-12 infusions over several weeks",
+      "modality": "Medication + Therapy",
+      "resources": [
+        "https://www.fda.gov/",
+        "https://www.nimh.nih.gov/"
+      ],
+      "key_benefits": [
+        "Rapid onset of effects (hours to days)",
+        "Effective for treatment-resistant depression",
+        "May reduce suicidal ideation quickly",
+        "Fewer side effects than some medications"
+      ],
+      "considerations": "Experimental for many conditions; expensive; requires careful medical supervision; potential for dissociation"
+    },
+    {
+      "id": 11,
+      "name": "Psychiatric Hospitalization (Inpatient Care)",
+      "category": "Crisis Support",
+      "conditions": ["depression", "ptsd", "anxiety"],
+      "description": "Intensive 24/7 care in hospital setting. For acute crises, severe symptoms, or when safety cannot be maintained in outpatient setting.",
+      "effectiveness": 85,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "3-14 days typically",
+      "modality": "Inpatient",
+      "resources": [
+        "https://www.samhsa.gov/",
+        "https://www.nimh.nih.gov/",
+        "National Suicide Prevention Lifeline: 988"
+      ],
+      "key_benefits": [
+        "Immediate safety and crisis stabilization",
+        "24/7 medical and psychiatric monitoring",
+        "Intensive therapy and medication management",
+        "Suicide prevention and assessment"
+      ],
+      "considerations": "Significant cost; may disrupt work/life; intensive but typically short-term"
+    },
+    {
+      "id": 12,
+      "name": "Electroconvulsive Therapy (ECT)",
+      "category": "Crisis Support",
+      "conditions": ["depression"],
+      "description": "Medical procedure using anesthesia and muscle relaxants while electrical currents pass through brain. For severe, treatment-resistant depression when other treatments fail.",
+      "effectiveness": 80,
+      "age_groups": ["26-40", "41-65", "65+"],
+      "duration": "Typically 6-12 treatments over 2-4 weeks",
+      "modality": "Medical Procedure",
+      "resources": [
+        "https://www.apa.org/",
+        "https://www.nimh.nih.gov/"
+      ],
+      "key_benefits": [
+        "Highly effective for severe, resistant depression",
+        "Rapid response possible",
+        "Can be life-saving in severe cases",
+        "Well-established safety profile"
+      ],
+      "considerations": "Requires anesthesia; temporary memory loss possible; requires informed consent; stigma remains"
+    },
+    {
+      "id": 13,
+      "name": "Exercise and Lifestyle Intervention",
+      "category": "Lifestyle Intervention",
+      "conditions": ["depression", "anxiety"],
+      "description": "Regular physical activity, sleep hygiene, nutrition, and stress management. Complementary or primary treatment for mild-to-moderate symptoms.",
+      "effectiveness": 65,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "Ongoing lifestyle changes",
+      "modality": "Self-managed or with coaching",
+      "resources": [
+        "https://www.cdc.gov/mentalhealth/",
+        "https://www.nih.gov/"
+      ],
+      "key_benefits": [
+        "No medication side effects",
+        "Improves overall health",
+        "Low cost",
+        "Can be combined with other treatments"
+      ],
+      "considerations": "Requires consistent effort and motivation; may be insufficient alone for severe cases"
+    },
+    {
+      "id": 14,
+      "name": "Residential Treatment Programs",
+      "category": "Integrated Treatment",
+      "conditions": ["substance_use_disorder", "depression", "anxiety"],
+      "description": "Live-in treatment facility for intensive, long-term care. For those needing structure and comprehensive support beyond outpatient or hospital care.",
+      "effectiveness": 75,
+      "age_groups": ["26-40", "41-65"],
+      "duration": "28 days to 12 months",
+      "modality": "Residential",
+      "resources": [
+        "https://www.samhsa.gov/",
+        "https://www.drugabuse.gov/"
+      ],
+      "key_benefits": [
+        "Removes person from triggering environment",
+        "Comprehensive treatment including therapy and medical care",
+        "Peer support and community",
+        "High structure and supervision"
+      ],
+      "considerations": "Significant cost; time away from work/family; may require leave of absence"
+    },
+    {
+      "id": 15,
+      "name": "Substance Abuse Treatment Program (SATP)",
+      "category": "Support",
+      "conditions": ["substance_use_disorder", "depression", "anxiety"],
+      "description": "Specialized treatment for substance use disorders including detoxification, counseling, and ongoing recovery support. Evidence-based programs using medication-assisted treatment.",
+      "effectiveness": 72,
+      "age_groups": ["18-25", "26-40", "41-65", "65+"],
+      "duration": "28 days to ongoing",
+      "modality": "Intensive Outpatient, Residential, or Support Groups",
+      "resources": [
+        "https://www.samhsa.gov/",
+        "https://www.drugabuse.gov/",
+        "SAMHSA National Helpline: 1-800-662-4357"
+      ],
+      "key_benefits": [
+        "Addresses both substance use and mental health",
+        "Medication-assisted treatment available",
+        "Evidence-based interventions",
+        "Long-term recovery support"
+      ],
+      "considerations": "Requires commitment to recovery; may involve medication; ongoing monitoring needed"
+    }
+  ]
+}

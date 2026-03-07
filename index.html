@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Adult Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">🧠 Mental Health Adult Dashboard</span>
+            <small class="text-muted">SAMHSA NSDUH Data Visualization</small>
+        </div>
+    </nav>
+
+    <!-- Tab Navigation -->
+    <div class="container-fluid mb-4">
+        <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="dashboardTab" data-bs-toggle="tab" data-bs-target="#dashboardContent" type="button" role="tab" aria-controls="dashboardContent" aria-selected="true">
+                    📊 Dashboard
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="treatmentsTab" data-bs-toggle="tab" data-bs-target="#treatmentsContent" type="button" role="tab" aria-controls="treatmentsContent" aria-selected="false">
+                    💊 Evidence-Based Treatments
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="riskFactorsTab" data-bs-toggle="tab" data-bs-target="#riskFactorsContent" type="button" role="tab" aria-controls="riskFactorsContent" aria-selected="false">
+                    ⚠️ Risk Factors & Causes
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="learningTab" data-bs-toggle="tab" data-bs-target="#learningContent" type="button" role="tab" aria-controls="learningContent" aria-selected="false">
+                    📚 How to Build This App
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="mainTabContent">
+        <!-- Dashboard Tab -->
+        <div class="tab-pane fade show active" id="dashboardContent" role="tabpanel" aria-labelledby="dashboardTab">
+    <div class="container-fluid">
+        <!-- Controls Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Filter Data</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6 col-lg-3">
+                                <label for="yearSelect" class="form-label">Year</label>
+                                <select id="yearSelect" class="form-select">
+                                    <option value="">All Years</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <label for="ageGroupSelect" class="form-label">Age Group</label>
+                                <select id="ageGroupSelect" class="form-select">
+                                    <option value="">All Age Groups</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <label for="conditionSelect" class="form-label">Condition</label>
+                                <select id="conditionSelect" class="form-select">
+                                    <option value="">All Conditions</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <label for="metricSelect" class="form-label">Metric Type</label>
+                                <select id="metricSelect" class="form-select">
+                                    <option value="">All Metrics</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Trends Over Time</h5>
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Comparison by Age Group</h5>
+                        <canvas id="ageGroupChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Condition Comparison</h5>
+                        <canvas id="conditionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Distribution</h5>
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Filtered Data</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-sm">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Age Group</th>
+                                        <th>Condition</th>
+                                        <th>Metric Type</th>
+                                        <th>Prevalence (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataTable">
+                                    <tr><td colspan="5" class="text-center text-muted">Loading data...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+        <!-- Treatments Tab -->
+        <div class="tab-pane fade" id="treatmentsContent" role="tabpanel" aria-labelledby="treatmentsTab">
+            <div class="container-fluid">
+                <!-- Treatments Filter -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Browse Treatments</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="treatmentConditionSelect" class="form-label">Mental Health Condition</label>
+                                        <select id="treatmentConditionSelect" class="form-select">
+                                            <option value="">All Treatments</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="treatmentCategorySelect" class="form-label">Treatment Category</label>
+                                        <select id="treatmentCategorySelect" class="form-select">
+                                            <option value="">All Categories</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="treatmentAgeSelect" class="form-label">Age Group</label>
+                                        <select id="treatmentAgeSelect" class="form-select">
+                                            <option value="">All Age Groups</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatments Grid -->
+                <div class="row g-4 mb-4" id="treatmentsGrid">
+                    <div class="col-12 text-center text-muted">Loading treatments...</div>
+                </div>
+
+                <!-- Treatment Detail Modal -->
+                <div class="modal fade" id="treatmentModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="treatmentModalTitle"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body" id="treatmentModalBody"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a href="#" id="treatmentResourceLink" class="btn btn-primary" target="_blank">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Factors Tab -->
+        <div class="tab-pane fade" id="riskFactorsContent" role="tabpanel" aria-labelledby="riskFactorsTab">
+            <div class="container-fluid">
+                <!-- Risk Factors Filter -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Understanding Risk Factors & Causes</h5>
+                                <p class="text-muted mb-3">Adult mental health is influenced by multiple biological, environmental, occupational, and social factors. Understanding these risk factors can help with prevention and intervention.</p>
+                                <div class="row g-3">
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="riskFactorConditionSelect" class="form-label">Mental Health Condition</label>
+                                        <select id="riskFactorConditionSelect" class="form-select">
+                                            <option value="">All Conditions</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="riskFactorCategorySelect" class="form-label">Risk Factor Category</label>
+                                        <select id="riskFactorCategorySelect" class="form-select">
+                                            <option value="">All Categories</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label class="form-label">&nbsp;</label>
+                                        <button id="resetRiskFactorFilters" class="btn btn-secondary w-100">Reset Filters</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Factors Grid -->
+                <div class="row g-4 mb-4" id="riskFactorsGrid">
+                    <div class="col-12 text-center text-muted">Loading risk factors...</div>
+                </div>
+
+                <!-- Risk Factor Detail Modal -->
+                <div class="modal fade" id="riskFactorModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="riskFactorModalTitle"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body" id="riskFactorModalBody"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a href="#" id="riskFactorResourceLink" class="btn btn-primary" target="_blank">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Tab -->
+        <div class="tab-pane fade" id="learningContent" role="tabpanel" aria-labelledby="learningTab">
+            <div class="container-fluid">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2>📚 How to Build This App</h2>
+                                <p class="text-muted">Learn web development by understanding how this Adult Mental Health Dashboard was built.</p>
+                                <hr>
+
+                                <div class="learning-content">
+                                    <h4 class="mt-4">🎯 About This Application</h4>
+                                    <p>This is an adult-specific adaptation of the mental health dashboard pattern, using real SAMHSA (Substance Abuse and Mental Health Services Administration) data for adults aged 18 and above.</p>
+                                    <p><strong>Key Features:</strong></p>
+                                    <ul>
+                                        <li>Interactive data visualization with Chart.js</li>
+                                        <li>Evidence-based treatment browser</li>
+                                        <li>Adult risk factors and causes</li>
+                                        <li>Responsive design for all devices</li>
+                                        <li>Real health statistics from trusted sources</li>
+                                    </ul>
+
+                                    <h4 class="mt-4">📊 Data Sources</h4>
+                                    <ul>
+                                        <li><strong>SAMHSA NSDUH</strong> - National Survey on Drug Use and Health (annual adult statistics)</li>
+                                        <li><strong>NIMH</strong> - National Institute of Mental Health research</li>
+                                        <li><strong>CDC</strong> - Centers for Disease Control health data</li>
+                                        <li><strong>FDA</strong> - Medication and treatment approvals</li>
+                                        <li><strong>APA</strong> - American Psychological Association clinical guidelines</li>
+                                    </ul>
+
+                                    <h4 class="mt-4">🏗️ Architecture</h4>
+                                    <p>This dashboard follows a clean separation of concerns:</p>
+                                    <ul>
+                                        <li><strong>data-handler.js</strong> - Loads and filters statistics</li>
+                                        <li><strong>chart-manager.js</strong> - Creates visualizations</li>
+                                        <li><strong>treatment-handler.js & treatment-ui.js</strong> - Treatment browser</li>
+                                        <li><strong>risk-factors-handler.js & risk-factors-ui.js</strong> - Risk factors display</li>
+                                        <li><strong>app.js</strong> - Main orchestrator</li>
+                                    </ul>
+
+                                    <h4 class="mt-4">💻 Key Technologies</h4>
+                                    <ul>
+                                        <li><strong>HTML5</strong> - Semantic markup</li>
+                                        <li><strong>CSS3</strong> - Responsive design with Bootstrap 5</li>
+                                        <li><strong>Vanilla JavaScript</strong> - No frameworks needed</li>
+                                        <li><strong>Chart.js</strong> - Beautiful data visualizations</li>
+                                        <li><strong>JSON</strong> - Data storage format</li>
+                                    </ul>
+
+                                    <h4 class="mt-4">🔑 JavaScript Concepts Used</h4>
+                                    <ul>
+                                        <li><strong>ES6 Classes</strong> - Organized, reusable code structure</li>
+                                        <li><strong>Async/Await</strong> - Load data without blocking</li>
+                                        <li><strong>Event Listeners</strong> - React to user interactions</li>
+                                        <li><strong>DOM Manipulation</strong> - Update page dynamically</li>
+                                        <li><strong>Array Methods</strong> - Filter, map, reduce data</li>
+                                        <li><strong>Promises</strong> - Handle async operations</li>
+                                    </ul>
+
+                                    <h4 class="mt-4">📈 Working with Data</h4>
+                                    <p>The dashboard processes data through multiple stages:</p>
+                                    <ol>
+                                        <li>Load JSON data from files</li>
+                                        <li>Apply user filters (year, age, condition)</li>
+                                        <li>Aggregate data for visualizations</li>
+                                        <li>Render charts with Chart.js</li>
+                                        <li>Update tables and cards dynamically</li>
+                                    </ol>
+
+                                    <h4 class="mt-4">🎨 Responsive Design</h4>
+                                    <p>Bootstrap 5 and CSS Grid ensure the app works on any device:</p>
+                                    <ul>
+                                        <li>Mobile: Single column, touch-friendly</li>
+                                        <li>Tablet: Two columns, optimized spacing</li>
+                                        <li>Desktop: Full multi-column layouts</li>
+                                        <li>Charts resize automatically</li>
+                                        <li>Touch-friendly controls on all sizes</li>
+                                    </ul>
+
+                                    <h4 class="mt-4">🚀 Deployment</h4>
+                                    <p>This app requires no build tools or backend server:</p>
+                                    <ul>
+                                        <li>No npm installation needed</li>
+                                        <li>No database required</li>
+                                        <li>No API keys needed</li>
+                                        <li>Deploy anywhere: GitHub Pages, Netlify, or traditional hosting</li>
+                                        <li>Open index.html in any modern browser</li>
+                                    </ul>
+
+                                    <div class="alert alert-success mt-4">
+                                        <h5>🏆 Learning Objectives</h5>
+                                        <p class="mb-0">By studying this codebase, you'll learn:</p>
+                                        <ul class="mb-0">
+                                            <li>How to build real-world data applications</li>
+                                            <li>Clean code architecture patterns</li>
+                                            <li>Working with third-party libraries</li>
+                                            <li>Responsive web design principles</li>
+                                            <li>Best practices for performance</li>
+                                            <li>How to handle real data responsibly</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container-fluid text-center text-muted small">
+            <p>Data source: SAMHSA National Survey on Drug Use and Health (NSDUH) | All data is for educational purposes</p>
+            <p>Last updated: 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="js/data-handler.js"></script>
+    <script src="js/chart-manager.js"></script>
+    <script src="js/treatment-handler.js"></script>
+    <script src="js/treatment-ui.js"></script>
+    <script src="js/risk-factors-handler.js"></script>
+    <script src="js/risk-factors-ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
