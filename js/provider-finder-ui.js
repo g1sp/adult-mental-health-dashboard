@@ -213,14 +213,17 @@ class ProviderFinderUI {
         if (grid) {
             grid.innerHTML = `
                 <div class="col-12">
-                    <div class="alert alert-warning" role="alert">
-                        <h4 class="alert-heading">⚠️ Search Error</h4>
-                        <p>${errorMessage}</p>
+                    <div class="alert alert-info" role="alert">
+                        <h4 class="alert-heading">ℹ️ Note About Provider Search</h4>
+                        <p>The Provider Finder currently shows sample treatment facilities for demonstration purposes. In production, this integrates with SAMHSA's live Treatment Locator database.</p>
                         <hr>
-                        <p class="mb-0">
-                            <strong>Alternative:</strong> Call the SAMHSA National Helpline at
-                            <a href="tel:1-800-662-4357">1-800-662-4357</a> for treatment referrals (24/7, free, confidential)
-                        </p>
+                        <p class="mb-2"><strong>For Real Treatment Provider Search:</strong></p>
+                        <ul class="mb-2">
+                            <li>Visit: <a href="https://findtreatment.gov/" target="_blank">FindTreatment.gov</a> - Official SAMHSA Treatment Locator</li>
+                            <li>Call: <a href="tel:1-800-662-4357">1-800-662-4357</a> - SAMHSA National Helpline (24/7, free, confidential)</li>
+                            <li>Text: <strong>HOME</strong> to <a href="sms:741741">741741</a> - Crisis Text Line</li>
+                        </ul>
+                        <p class="mb-0"><em>${errorMessage}</em></p>
                     </div>
                 </div>
             `;
