@@ -136,18 +136,30 @@ class ProviderFinder {
     // Search for providers by location
     async searchProviders(latitude, longitude, radiusMiles = 25) {
         try {
+            console.log('📍 searchProviders called with:', {latitude, longitude, radiusMiles});
+            console.log('Mock providers available:', this.mockProviders.length);
+
             // Use mock data with location-based filtering
             // Calculate distances and filter by radius
             this.providers = this.mockProviders.map(facility => {
                 const distance = this.calculateDistance(latitude, longitude, facility.latitude, facility.longitude);
-                return this.formatProvider({...facility, distance});
-            }).filter(p => p.distance <= radiusMiles);
+                const formatted = this.formatProvider({...facility, distance});
+                console.log(`Provider: ${formatted.name} - Distance: ${formatted.distance.toFixed(1)} miles`);
+                return formatted;
+            });
+
+            // Filter by radius
+            this.providers = this.providers.filter(p => {
+                const included = p.distance <= radiusMiles;
+                console.log(`${included ? '✅' : '❌'} ${p.name}: ${p.distance.toFixed(1)} miles (${radiusMiles} mile limit)`);
+                return included;
+            });
 
             this.filteredProviders = [...this.providers];
-            console.log(`Found ${this.providers.length} providers within ${radiusMiles} miles`);
+            console.log(`✅ Found ${this.providers.length} providers within ${radiusMiles} miles`);
             return this.providers;
         } catch (error) {
-            console.error('Error searching providers:', error);
+            console.error('❌ Error searching providers:', error);
             return [];
         }
     }
