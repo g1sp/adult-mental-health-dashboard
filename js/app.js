@@ -46,6 +46,10 @@ class MentalHealthApp {
         this.setupEventListeners();
         this.setupTreatmentEventListeners();
         this.setupRiskFactorEventListeners();
+        this.setupProviderFinderEventListeners();
+
+        // Initialize provider finder
+        providerFinderUI.initializeModal();
 
         // Initial chart load
         this.updateAllCharts();
@@ -246,6 +250,104 @@ class MentalHealthApp {
         document.getElementById('riskFactorConditionSelect').value = '';
         document.getElementById('riskFactorCategorySelect').value = '';
         this.updateRiskFactorsDisplay();
+    }
+
+    // Set up event listeners for provider finder
+    setupProviderFinderEventListeners() {
+        document.getElementById('searchButton')?.addEventListener('click', () => this.onProviderSearch());
+        document.getElementById('useLocationButton')?.addEventListener('click', () => this.useCurrentLocation());
+        document.getElementById('locationInput')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.onProviderSearch();
+        });
+    }
+
+    // Handle provider search
+    async onProviderSearch() {
+        const location = document.getElementById('locationInput').value.trim();
+        if (!location) {
+            alert('Please enter a location to search');
+            return;
+        }
+
+        providerFinderUI.showLoadingState();
+
+        try {
+            // Geocode the address
+            const coordinates = await providerFinderUI.geocodeAddress(location);
+            const radius = parseInt(document.getElementById('radiusSelect').value);
+
+            // Search for providers
+            const providers = await providerFinder.searchProviders(coordinates.latitude, coordinates.longitude, radius);
+
+            // Apply filters
+            const treatmentType = document.getElementById('treatmentTypeSelect').value;
+            const insurance = document.getElementById('insuranceSelect').value;
+            const specialization = document.getElementById('specializationSelect').value;
+
+            const filters = {
+                type: treatmentType,
+                insurance: insurance,
+                specialization: specialization,
+                maxDistance: radius
+            };
+
+            providerFinder.filterProviders(filters);
+            providerFinder.sortByDistance();
+
+            // Display results
+            providerFinderUI.updateProviderCount(providerFinder.filteredProviders.length);
+            providerFinderUI.renderProviderCards(providerFinder.filteredProviders);
+
+            // Show results alert
+            const resultsAlert = document.getElementById('resultsAlert');
+            if (resultsAlert) {
+                resultsAlert.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Search error:', error);
+            providerFinderUI.showErrorState(`Unable to find providers for "${location}". ${error.message}`);
+        }
+    }
+
+    // Use current location
+    async useCurrentLocation() {
+        providerFinderUI.showLoadingState();
+
+        try {
+            const location = await providerFinderUI.getCurrentLocation();
+            const radius = parseInt(document.getElementById('radiusSelect').value);
+
+            // Search for providers
+            const providers = await providerFinder.searchProviders(location.latitude, location.longitude, radius);
+
+            // Apply filters
+            const treatmentType = document.getElementById('treatmentTypeSelect').value;
+            const insurance = document.getElementById('insuranceSelect').value;
+            const specialization = document.getElementById('specializationSelect').value;
+
+            const filters = {
+                type: treatmentType,
+                insurance: insurance,
+                specialization: specialization,
+                maxDistance: radius
+            };
+
+            providerFinder.filterProviders(filters);
+            providerFinder.sortByDistance();
+
+            // Display results
+            providerFinderUI.updateProviderCount(providerFinder.filteredProviders.length);
+            providerFinderUI.renderProviderCards(providerFinder.filteredProviders);
+
+            // Show results alert
+            const resultsAlert = document.getElementById('resultsAlert');
+            if (resultsAlert) {
+                resultsAlert.style.display = 'block';
+            }
+        } catch (error) {
+            console.error('Location error:', error);
+            providerFinderUI.showErrorState('Unable to get your location. Please enable location services or enter an address manually.');
+        }
     }
 }
 
