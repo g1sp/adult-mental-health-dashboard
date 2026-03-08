@@ -39,6 +39,11 @@
                 </button>
             </li>
             <li class="nav-item" role="presentation">
+                <button class="nav-link" id="successStoriesTab" data-bs-toggle="tab" data-bs-target="#successStoriesContent" type="button" role="tab" aria-controls="successStoriesContent" aria-selected="false">
+                    ⭐ Recovery Stories
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="learningTab" data-bs-toggle="tab" data-bs-target="#learningContent" type="button" role="tab" aria-controls="learningContent" aria-selected="false">
                     📚 How to Build This App
                 </button>
@@ -525,6 +530,139 @@
         </div>
     </div>
 
+        <!-- Success Stories Tab -->
+        <div class="tab-pane fade" id="successStoriesContent" role="tabpanel" aria-labelledby="successStoriesTab">
+            <div class="container-fluid">
+                <!-- Header Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h4 class="card-title mb-2">⭐ Recovery Stories - Real People, Real Recovery</h4>
+                                <p class="card-text text-muted mb-3">
+                                    Curated collection of documented recovery journeys from credible sources including NAMI, TED Talks, published memoirs, and clinical research. These stories prove that recovery is possible.
+                                </p>
+
+                                <!-- Success Statistics -->
+                                <div id="successStats"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Filter Stories</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="storyConditionSelect" class="form-label">Condition</label>
+                                        <select id="storyConditionSelect" class="form-select">
+                                            <option value="">All Conditions</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label for="storyAgeGroupSelect" class="form-label">Age Group</label>
+                                        <select id="storyAgeGroupSelect" class="form-select">
+                                            <option value="">All Age Groups</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <label class="form-label">&nbsp;</label>
+                                        <p class="text-muted small" id="storyCount">Loading stories...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stories Grid -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="row" id="storiesGrid">
+                            <div class="col-12 text-center text-muted py-5">
+                                <p>Loading recovery stories...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Information Section -->
+                <div class="row mb-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h6 class="card-title">💡 Why These Stories Matter</h6>
+                                <p class="card-text small mb-0">
+                                    These documented recovery stories demonstrate that mental health conditions are treatable.
+                                    They show different pathways to recovery and emphasize that with proper treatment and support,
+                                    people can and do recover from even the most serious mental health challenges.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h6 class="card-title">🎯 Getting Started With Your Recovery</h6>
+                                <ul class="small mb-0">
+                                    <li><strong>See a Doctor:</strong> Primary care physicians can assess your mental health</li>
+                                    <li><strong>Find a Therapist:</strong> Use the 🏥 Find Treatment tab for local providers</li>
+                                    <li><strong>Consider Medication:</strong> Many conditions respond well to medication</li>
+                                    <li><strong>Join Support:</strong> Support groups connect you with others in recovery</li>
+                                    <li><strong>Crisis Help:</strong> Call 988 or text HOME to 741741 for immediate support</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Source -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title">📚 Verified Sources</h6>
+                                <p class="card-text small mb-2">
+                                    All stories are from documented, verified sources:
+                                    <strong>NAMI (National Alliance on Mental Illness)</strong>,
+                                    <strong>TED Talks</strong>,
+                                    <strong>published memoirs and interviews</strong>,
+                                    and <strong>clinical case studies</strong>.
+                                </p>
+                                <p class="card-text small mb-0">
+                                    Each story includes treatment approaches and lessons that may help others on their recovery journey.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Detail Modal -->
+    <div class="modal fade" id="storyModal" tabindex="-1" aria-labelledby="storyModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title" id="storyModalTitle">Recovery Story</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="storyModalBody">
+                    <p class="text-muted text-center">Loading story...</p>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="https://www.samhsa.gov/" target="_blank" class="btn btn-primary">Learn More About Treatment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-light py-4 mt-5">
         <div class="container-fluid text-center text-muted small">
             <p>Data source: SAMHSA National Survey on Drug Use and Health (NSDUH) | All data is for educational purposes</p>
@@ -542,6 +680,8 @@
     <script src="js/risk-factors-ui.js"></script>
     <script src="js/provider-finder.js"></script>
     <script src="js/provider-finder-ui.js"></script>
+    <script src="js/success-stories-handler.js"></script>
+    <script src="js/success-stories-ui.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

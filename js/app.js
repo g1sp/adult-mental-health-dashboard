@@ -33,6 +33,13 @@ class MentalHealthApp {
             return;
         }
 
+        // Load success stories
+        const successStoriesLoaded = await successStoriesHandler.loadSuccessStories();
+        if (!successStoriesLoaded) {
+            console.error('Failed to load success stories');
+            return;
+        }
+
         // Populate filter dropdowns
         this.populateDropdowns();
 
@@ -42,14 +49,19 @@ class MentalHealthApp {
         // Populate risk factor filters
         this.populateRiskFactorFilters();
 
+        // Populate success stories filters
+        this.populateSuccessStoriesFilters();
+
         // Set up event listeners
         this.setupEventListeners();
         this.setupTreatmentEventListeners();
         this.setupRiskFactorEventListeners();
         this.setupProviderFinderEventListeners();
+        this.setupSuccessStoriesEventListeners();
 
-        // Initialize provider finder
+        // Initialize modals
         providerFinderUI.initializeModal();
+        successStoriesUI.initializeModal();
 
         // Initial chart load
         this.updateAllCharts();
@@ -59,6 +71,9 @@ class MentalHealthApp {
 
         // Initial risk factors load
         this.updateRiskFactorsDisplay();
+
+        // Initial success stories load
+        this.updateSuccessStoriesDisplay();
     }
 
     // Populate dropdown selectors with unique values
@@ -250,6 +265,37 @@ class MentalHealthApp {
         document.getElementById('riskFactorConditionSelect').value = '';
         document.getElementById('riskFactorCategorySelect').value = '';
         this.updateRiskFactorsDisplay();
+    }
+
+    // Populate success stories filter dropdowns
+    populateSuccessStoriesFilters() {
+        const conditions = successStoriesHandler.getConditions();
+        const ageGroups = successStoriesHandler.getAgeGroups();
+
+        this.populateSelect('storyConditionSelect', conditions);
+        this.populateSelect('storyAgeGroupSelect', ageGroups);
+    }
+
+    // Set up event listeners for success stories
+    setupSuccessStoriesEventListeners() {
+        document.getElementById('storyConditionSelect')?.addEventListener('change', () => this.onSuccessStoryFilterChange());
+        document.getElementById('storyAgeGroupSelect')?.addEventListener('change', () => this.onSuccessStoryFilterChange());
+    }
+
+    // Handle success story filter changes
+    onSuccessStoryFilterChange() {
+        const condition = document.getElementById('storyConditionSelect').value || '';
+        const ageGroup = document.getElementById('storyAgeGroupSelect').value || '';
+
+        this.updateSuccessStoriesDisplay(condition, ageGroup);
+    }
+
+    // Update success stories display
+    updateSuccessStoriesDisplay(condition = '', ageGroup = '') {
+        const filtered = successStoriesHandler.filterStories(condition, ageGroup);
+        successStoriesUI.updateStoryCount(filtered.length);
+        successStoriesUI.updateStoryCards(filtered);
+        successStoriesUI.showSuccessStatistics();
     }
 
     // Set up event listeners for provider finder
