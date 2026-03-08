@@ -261,14 +261,18 @@ class ProviderFinderUI {
     // Geocode address to coordinates (using free service)
     async geocodeAddress(address) {
         try {
+            console.log('geocodeAddress called with:', address);
+
             // For demo: check if searching for Fremont area
-            const addressLower = address.toLowerCase();
+            const addressLower = address.toLowerCase().trim();
+            console.log('Address lowercase:', addressLower);
 
             // Demo area: Fremont, CA (94555)
-            if (addressLower.includes('94555') ||
-                addressLower.includes('fremont') ||
-                (addressLower.includes('ca') && addressLower.includes('fremont'))) {
-                console.log('Demo mode: Using Fremont coordinates for address:', address);
+            if (addressLower === '94555' ||
+                addressLower.includes('94555') ||
+                addressLower === 'fremont' ||
+                addressLower.includes('fremont')) {
+                console.log('✅ Demo mode detected - Using Fremont coordinates');
                 return {
                     latitude: 37.5485,
                     longitude: -122.2171,
@@ -289,9 +293,9 @@ class ProviderFinderUI {
                     displayName: data[0].display_name
                 };
             }
-            throw new Error('Address not found');
+            throw new Error('Address not found - not in demo area and geocoding failed');
         } catch (error) {
-            console.error('Geocoding error:', error);
+            console.error('❌ Geocoding error:', error.message);
             throw error;
         }
     }

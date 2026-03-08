@@ -310,6 +310,8 @@ class MentalHealthApp {
     // Handle provider search
     async onProviderSearch() {
         const location = document.getElementById('locationInput').value.trim();
+        console.log('🔍 Provider search initiated for:', location);
+
         if (!location) {
             alert('Please enter a location to search');
             return;
@@ -318,12 +320,18 @@ class MentalHealthApp {
         providerFinderUI.showLoadingState();
 
         try {
+            console.log('Step 1: Geocoding address...');
             // Geocode the address
             const coordinates = await providerFinderUI.geocodeAddress(location);
+            console.log('Step 2: Geocoding successful:', coordinates);
+
             const radius = parseInt(document.getElementById('radiusSelect').value);
+            console.log('Step 3: Search radius:', radius, 'miles');
 
             // Search for providers
+            console.log('Step 4: Searching for providers at', coordinates.latitude, coordinates.longitude);
             const providers = await providerFinder.searchProviders(coordinates.latitude, coordinates.longitude, radius);
+            console.log('Step 5: Found', providers.length, 'providers');
 
             // Apply filters
             const treatmentType = document.getElementById('treatmentTypeSelect').value;
@@ -337,9 +345,11 @@ class MentalHealthApp {
                 maxDistance: radius
             };
 
+            console.log('Step 6: Applying filters:', filters);
             providerFinder.filterProviders(filters);
             providerFinder.sortByDistance();
 
+            console.log('Step 7: Displaying', providerFinder.filteredProviders.length, 'results');
             // Display results
             providerFinderUI.updateProviderCount(providerFinder.filteredProviders.length);
             providerFinderUI.renderProviderCards(providerFinder.filteredProviders);
@@ -349,8 +359,9 @@ class MentalHealthApp {
             if (resultsAlert) {
                 resultsAlert.style.display = 'block';
             }
+            console.log('✅ Search complete');
         } catch (error) {
-            console.error('Search error:', error);
+            console.error('❌ Search error:', error);
             providerFinderUI.showErrorState(`Unable to find providers for "${location}". ${error.message}`);
         }
     }
