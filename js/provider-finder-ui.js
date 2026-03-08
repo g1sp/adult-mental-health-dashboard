@@ -214,8 +214,15 @@ class ProviderFinderUI {
             grid.innerHTML = `
                 <div class="col-12">
                     <div class="alert alert-info" role="alert">
-                        <h4 class="alert-heading">ℹ️ Note About Provider Search</h4>
-                        <p>The Provider Finder currently shows sample treatment facilities for demonstration purposes. In production, this integrates with SAMHSA's live Treatment Locator database.</p>
+                        <h4 class="alert-heading">ℹ️ Demo: Fremont, CA Area Only</h4>
+                        <p><strong>This is a demonstration with sample providers for Fremont, CA (94555)</strong></p>
+                        <hr>
+                        <p class="mb-2"><strong>Try searching for:</strong></p>
+                        <ul class="mb-3">
+                            <li><strong>"94555"</strong> (Fremont ZIP code)</li>
+                            <li><strong>"Fremont"</strong> (City name)</li>
+                            <li><strong>"Fremont, CA"</strong> (City and State)</li>
+                        </ul>
                         <hr>
                         <p class="mb-2"><strong>For Real Treatment Provider Search:</strong></p>
                         <ul class="mb-2">
@@ -223,7 +230,7 @@ class ProviderFinderUI {
                             <li>Call: <a href="tel:1-800-662-4357">1-800-662-4357</a> - SAMHSA National Helpline (24/7, free, confidential)</li>
                             <li>Text: <strong>HOME</strong> to <a href="sms:741741">741741</a> - Crisis Text Line</li>
                         </ul>
-                        <p class="mb-0"><em>${errorMessage}</em></p>
+                        <p class="mb-0"><em>Error: ${errorMessage}</em></p>
                     </div>
                 </div>
             `;
@@ -254,11 +261,28 @@ class ProviderFinderUI {
     // Geocode address to coordinates (using free service)
     async geocodeAddress(address) {
         try {
-            // Using OpenStreetMap Nominatim API (free, no API key needed)
+            // For demo: check if searching for Fremont area
+            const addressLower = address.toLowerCase();
+
+            // Demo area: Fremont, CA (94555)
+            if (addressLower.includes('94555') ||
+                addressLower.includes('fremont') ||
+                (addressLower.includes('ca') && addressLower.includes('fremont'))) {
+                console.log('Demo mode: Using Fremont coordinates for address:', address);
+                return {
+                    latitude: 37.5485,
+                    longitude: -122.2171,
+                    displayName: 'Fremont, CA 94555 (Demo Area)'
+                };
+            }
+
+            // For other addresses, try OpenStreetMap API
+            console.log('Attempting geocoding via OpenStreetMap API for:', address);
             const response = await fetch(`https://nominatim.openstreetmap.org/search?address=${encodeURIComponent(address)}&format=json`);
             const data = await response.json();
 
             if (data && data.length > 0) {
+                console.log('Geocoding successful via API');
                 return {
                     latitude: parseFloat(data[0].lat),
                     longitude: parseFloat(data[0].lon),
